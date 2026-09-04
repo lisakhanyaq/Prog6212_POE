@@ -1,0 +1,44 @@
+CREATE TABLE Users (
+  UserID INT IDENTITY(1,1) PRIMARY KEY,
+  FirstName NVARCHAR(100) NOT NULL,
+  LastName NVARCHAR(100) NOT NULL,
+  Email NVARCHAR(255) NOT NULL UNIQUE,
+  PasswordHash NVARCHAR(500) NOT NULL,
+  Role NVARCHAR(50) NOT NULL,
+  CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Events (
+  EventID INT IDENTITY(1,1) PRIMARY KEY,
+  EventName NVARCHAR(200) NOT NULL,
+  EventDate DATE NOT NULL,
+  Location NVARCHAR(200),
+  OrganiserID INT NOT NULL,
+  FOREIGN KEY (OrganiserID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE Categories (
+  CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+  EventID INT NOT NULL,
+  CategoryName NVARCHAR(100) NOT NULL,
+  Fee DECIMAL(8,2),
+  FOREIGN KEY (EventID) REFERENCES Events(EventID)
+);
+
+CREATE TABLE Enrolments (
+  EnrolmentID INT IDENTITY(1,1) PRIMARY KEY,
+  ParticipantID INT NOT NULL,
+  EventID INT NOT NULL,
+  CategoryID INT NOT NULL,
+  FOREIGN KEY (ParticipantID) REFERENCES Users(UserID),
+  FOREIGN KEY (EventID) REFERENCES Events(EventID),
+  FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+);
+
+CREATE TABLE Results (
+  ResultID INT IDENTITY(1,1) PRIMARY KEY,
+  EnrolmentID INT NOT NULL UNIQUE,
+  FinishTime TIME,
+  Position INT,
+  FOREIGN KEY (EnrolmentID) REFERENCES Enrolments(EnrolmentID)
+);
