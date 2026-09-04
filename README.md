@@ -28,4 +28,4 @@ GitHub Actions workflow validates required files.
 ![CI Green Build Screenshot]:
 
 ## Video Demonstration
-YouTube Link: 
+YouTube Link: https://youtu.be/DvczlblqRaI
