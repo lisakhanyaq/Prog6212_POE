@@ -39,3 +39,16 @@ When you run the SQL script, it inserts sample records:
 - Categories: 5 (10K Run, Half Marathon, 50K Cycle, etc.)
 - Enrolments: 4 (linking participants to events)
 - Results: 1 (Sipho finished Nelson Bay 10K in 42 minutes, position 5)
+
+## Example API Usage
+### Register User
+POST /api/auth/register  
+Body:
+```json
+{
+  "firstName": "Thabo",
+  "lastName": "Mokoena",
+  "email": "thabo@example.com",
+  "password": "12345",
+  "role": "Organiser"
+}
