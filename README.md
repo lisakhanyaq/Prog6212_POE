@@ -67,3 +67,14 @@ Body:
   "distance": 50,
   "eventType": "Cycle"
 }
+
+### 4. Example Enrolment
+```markdown
+### Enrol Participant
+POST /api/enrolments  
+Body:
+```json
+{
+  "eventId": 1,
+  "categoryId": 2
+}
