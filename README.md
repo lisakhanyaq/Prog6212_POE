@@ -68,7 +68,7 @@ Body:
   "eventType": "Cycle"
 }
 
-### 4. Example Enrolment
+### Example Enrolment
 ```markdown
 ### Enrol Participant
 POST /api/enrolments  
@@ -78,3 +78,15 @@ Body:
   "eventId": 1,
   "categoryId": 2
 }
+
+
+### Example Results
+```markdown
+### View Results
+GET /api/users/me/results  
+
+Response:
+```json
+[
+  { "enrolmentId": 1, "finishTime": "00:42:15", "position": 5 }
+]
