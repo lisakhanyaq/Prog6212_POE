@@ -52,3 +52,18 @@ Body:
   "password": "12345",
   "role": "Organiser"
 }
+
+## Example Event Creation
+```markdown
+### Create Event
+POST /api/events  
+Body:
+```json
+{
+  "eventName": "Bay Cycle Classic",
+  "description": "Cycling event",
+  "eventDate": "2026-12-01",
+  "location": "Nelson Mandela Bay",
+  "distance": 50,
+  "eventType": "Cycle"
+}
