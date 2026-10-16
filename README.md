@@ -84,9 +84,44 @@ Body:
 ```markdown
 ### View Results
 GET /api/users/me/results  
-
 Response:
 ```json
 [
   { "enrolmentId": 1, "finishTime": "00:42:15", "position": 5 }
 ]
+UPDATED README.md FOR PART 2
+
+# RaceDay API (PROG6212 POE)
+
+## Overview
+This project is a RaceDay management API built with ASP.NET Core and Entity Framework Core.  
+It allows organisers to manage events, categories, enrolments, and results, while participants can register and view their race outcomes.
+
+## Features
+- User registration and login with role assignment (Organiser / Participant)
+- Event creation and category management
+- Participant enrolment with status tracking
+- Result capturing and viewing
+- Swagger UI for testing endpoints
+- SQL Server integration with EF Core migrations
+
+## Workflow Demonstration
+1. Seed Roles (Organiser, Participant)
+2. Register users
+3. Login to obtain JWT token
+4. Create event
+5. Create category
+6. Enrol participant
+7. Capture result
+8. View results
+
+## Sample JSON Requests
+### Register User
+```json
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice@raceday.com",
+  "passwordHash": "Password123!",
+  "roleId": 1
+}
